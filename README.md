@@ -1,4 +1,5 @@
 # baekjoon
 
-https://variety82p.tistory.com/entry/%EB%B0%B1%EC%A4%80%EC%9D%84-%ED%92%80%EB%A9%B4-%EC%9E%90%EB%8F%99%EC%9C%BC%EB%A1%9C-%EB%82%B4-%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90-%EC%BB%A4%EB%B0%8B%EC%9D%84-BaekjoonHub
+# 백준허브 사용!
 
+https://velog.io/@flaxinger/%EB%B0%B1%EC%A4%80%ED%97%88%EB%B8%8C-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95#21-%EC%9D%B5%EC%8A%A4%ED%85%90%EC%85%98-%EC%84%A4%EC%B9%98
