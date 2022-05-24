@@ -1,0 +1,14 @@
+def solution(clothes):
+    answer = 1
+    clothe_dic = {}
+    # 타입별로 옷 구분
+    for clothe, type in clothes:
+        if clothe_dic.get(type,None) == None:
+            clothe_dic[type] = [clothe]
+        else:
+            clothe_dic.get(type).append(clothe)
+    # 경우의 수 계산 (+1 : 각각 안입는 경우)
+    for key,values in clothe_dic.items():
+        answer *= len(values)+1
+    # -1 : 모두 안입는 경우
+    return answer-1
