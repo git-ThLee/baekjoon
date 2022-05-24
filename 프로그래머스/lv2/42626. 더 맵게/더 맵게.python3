@@ -1,0 +1,23 @@
+import heapq
+def solution(scoville, K):
+    answer = 0
+    # list to heap
+    heapq.heapify(scoville)
+    
+    while len(scoville) > 1:
+        # 제일 안매운 음식 
+        min_1 = heapq.heappop(scoville)
+        # 두번째로 안매운 음식
+        min_2 = heapq.heappop(scoville)             
+        # 최솟값이 K 보다 크면 스코빌지수 초과
+        if min_1 > K:
+            return answer
+        else:
+            # 음식 섞기 및 횟수 증가
+            heapq.heappush(scoville, min_1+(min_2*2))
+            answer += 1
+            
+    # 하나 남은 음식이 스코빌지수보다 낮다면(모두 스코빌지수가 안넘는다면)
+    if scoville[0] < K:
+        return -1
+    return answer
