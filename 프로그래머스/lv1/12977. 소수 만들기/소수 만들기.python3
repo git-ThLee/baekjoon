@@ -1,0 +1,19 @@
+from itertools import combinations
+
+def solution(nums):
+    answer = 0
+    
+    # 1. 숫자 3개 조합(중복X)
+    sum_list = list(combinations(nums, 3))
+    
+    # 2. 소수 판별
+    for i in sum_list:
+        count = 0 # 약수 개수
+        for j in range(1, sum(i)+1):
+            if sum(i) % j == 0:
+                count += 1
+                
+        if count == 2 : # 약수가 2개면 소수!
+            answer += 1
+        
+    return answer
