@@ -9,6 +9,7 @@ def solution(clothes):
             clothe_dic.get(type).append(clothe)
     # 경우의 수 계산 (+1 : 각각 안입는 경우)
     for key,values in clothe_dic.items():
+        print(key,':',values)
         answer *= len(values)+1
     # -1 : 모두 안입는 경우
     return answer-1
