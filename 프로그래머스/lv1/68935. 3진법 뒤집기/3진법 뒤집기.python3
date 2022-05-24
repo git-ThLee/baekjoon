@@ -1,0 +1,10 @@
+def solution(n):
+    answer = ''
+    
+    while n > 0 :
+        answer += str(n%3) # 나머지
+        n = int(n) // 3 # 몫
+        
+    answer = int(answer,3) # 3진수 -> 10진수 
+    
+    return answer
