@@ -1,0 +1,32 @@
+def solution(lottos, win_nums):
+    answer = []
+    zero_count = 0
+    count = 0
+    ## 풀이순서
+    # 1. 0의 개수와 맞춘 개수를 구하고, 등수로 표현한다
+    for i in lottos:
+        if i == 0:
+            zero_count += 1
+        if i in win_nums:
+            count += 1
+    print('zero : ' ,zero_count)
+    print('count : ',count)
+            
+    if count == 0 :
+        if zero_count == 0 :
+            answer.append(6-abs(count+zero_count))
+        else:
+            answer.append(7-abs(count+zero_count))
+        answer.append(6-abs(count))
+    else:
+        answer.append(7-abs(count+zero_count))
+        answer.append(7-abs(count))
+    
+    return answer
+# 0 개 맞춤 : 6 등
+# 1 개 맞춤 : 6 등
+# 2 개 맞춤 : 5 등
+# 3 개 맞춤 : 4 등
+# 4 개 맞춤 : 3 등
+# 5 개 맞춤 : 2 등
+# 6 개 맞춤 : 1 등
