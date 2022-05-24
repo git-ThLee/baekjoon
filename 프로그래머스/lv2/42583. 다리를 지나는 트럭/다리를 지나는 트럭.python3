@@ -1,0 +1,19 @@
+def solution(bridge_length, weight, truck_weights):
+    ### 풀이 순서
+    # 1. 다리 길이(bridge_length)의 다리(truck_ing)를 생성
+    # 2. 다리를 1씩 감소시킴
+    # 3. 대기 트럭(truck_weights)이 존재하면 다리 맨 뒤에 추가
+    # 4. 다리(truck_ing)의 길이가 0이 될때까지 위 반복        
+    answer = 0
+    truck_ing = [0 for i in range(bridge_length)] #<---1
+    
+    while len(truck_ing):#<---4
+        answer += 1
+        truck_ing.pop(0) #<---2
+        if truck_weights: #<---3
+            if weight >= sum(truck_ing) + truck_weights[0]:
+                truck_ing.append(truck_weights.pop(0))
+            else:
+                truck_ing.append(0)
+      
+    return answer
