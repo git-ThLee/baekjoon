@@ -1,0 +1,27 @@
+from collections import deque
+def solution(priorities, location):
+    answer = 0
+    deq = deque(priorities)
+    ans_list = [] 
+    ### 풀이 순서
+    # 1. deq의 최대 값이 제일 앞에 있을때, ans_list에 추가하고 deq은 제일 앞 제거
+    # 2. 아니면, deq를 rotate해서 순환
+    # 3. deq의 모든 항목이 없어지거나, location으로 지정된 프린터가 ans_list에 추가될때 while 종료
+    # 4. 위 과정을 반복하면서 지정된 프린터를 놓치지않도록 location값도 이동
+    while 1:
+        if deq[0] == max(deq):
+            ans_list.append(deq[0])
+            deq.popleft()
+            if location == 0:
+                break
+            else: 
+                location -= 1
+        else:
+            deq.rotate(-1)
+            if location == 0:
+                location = len(deq)-1
+            else:
+                location -= 1
+        
+    answer = len(ans_list)
+    return answer
