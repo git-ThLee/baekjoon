@@ -1,0 +1,11 @@
+def solution(phone_book):
+    ### 풀이순서
+    # 1. 정렬 
+    # 2. 접두어 중복 확인 
+
+    answer = True
+    phone_book.sort()
+    for i in range(len(phone_book)-1): # -1 안 넣으면 인덱스 에러 
+        if phone_book[i+1].startswith(phone_book[i]):
+            return False
+    return answer
