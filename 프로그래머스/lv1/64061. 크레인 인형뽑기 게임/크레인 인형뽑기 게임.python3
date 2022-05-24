@@ -1,0 +1,21 @@
+def solution(board, moves):
+    answer = 0
+    answer_list = [0]
+    board_list = [[0 for col in range(30)] for row in range(30)]
+
+    for n in reversed(range(len(board))):
+        for m in range(len(board[n])):
+            if board[n][m] != 0:
+                board_list[m].append(board[n][m])
+                    
+    for i in moves:
+        if board_list[i-1][-1] != 0:
+            if answer_list[-1] == board_list[i-1][-1]:
+                answer += 2
+                answer_list.pop()
+                board_list[i-1].pop()
+            else:
+                answer_list.append(board_list[i-1][-1])
+                board_list[i-1].pop()
+  
+    return answer
