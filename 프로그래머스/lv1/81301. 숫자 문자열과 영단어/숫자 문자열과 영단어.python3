@@ -1,0 +1,39 @@
+def solution(s):
+    answer = ''
+    ### 풀이순서
+    # 1. s를 한 자리씩 확인한다
+    # 2. 한 자리가 숫자면 answer에 추가
+    # 3. 문자면 해당위치부터 2자리를 문자를 확인하여 해당하는 숫자를 answer에 추가
+    ### 풀이순서
+    # input : "23four5six7" <-- case 2
+    # 1. "2", "3", "f", "o" ...
+    # 2. "2" -> answer에 숫자 2 추가
+    # 3. "3" -> answer에 숫자 3 추가
+    # 4. "f" -> "fo" -> answer에 숫자 4 추가
+    ###
+    
+    for i in range(len(s)):
+        if(s[i] >= '0' and s[i] <= '9'):
+            answer = answer + s[i]
+        else:               
+            if (s[i:i+2] == 'ze'):
+                answer = answer + '0'
+            elif (s[i:i+2] == 'on'):
+                answer = answer + '1'
+            elif (s[i:i+2] == 'tw'):
+                answer = answer + '2'
+            elif (s[i:i+2] == 'th'):
+                answer = answer + '3'
+            elif (s[i:i+2] == 'fo'):
+                answer = answer + '4'
+            elif (s[i:i+2] == 'fi'):
+                answer = answer + '5'
+            elif (s[i:i+2] == 'si'):
+                answer = answer + '6'
+            elif (s[i:i+2] == 'se'):
+                answer = answer + '7'
+            elif (s[i:i+2] == 'ei'):
+                answer = answer + '8'
+            elif (s[i:i+2] == 'ni'):
+                answer = answer + '9'
+    return int(answer)
