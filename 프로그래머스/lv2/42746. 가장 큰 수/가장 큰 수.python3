@@ -1,0 +1,6 @@
+def solution(numbers):
+    answer = ''
+    lists = list(map(str,numbers))  
+    lists.sort(key = lambda x: (x)*3, reverse = True)
+    answer = "".join(lists)
+    return str(int(answer))
