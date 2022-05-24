@@ -1,0 +1,35 @@
+def solution(n, arr1, arr2):
+    answer = ['0']*n
+    tile1 = ['0']*len(arr1)
+    tile2 = ['0']*len(arr2)
+    
+    for i in range(len(arr1)):
+        temp = ''
+        for j in range(n):
+            if arr1[i] > 0:               
+                temp += str(arr1[i] % 2)
+                arr1[i] = arr1[i] // 2
+            else:
+                temp += '0'
+        tile1[i] = temp[::-1]    
+    
+    for i in range(len(arr2)):
+        temp = ''
+        for j in range(n):
+            if arr2[i] > 0:               
+                temp += str(arr2[i] % 2)
+                arr2[i] = arr2[i] // 2
+            else:
+                temp += '0'
+        tile2[i] = temp[::-1] 
+    
+    for i in range(n):
+        temp = ''
+        for j in range(n):
+            if tile1[i][j] == '1' or tile2[i][j] == '1':
+                temp += '#'
+            else:
+                temp += ' '
+        answer[i] = temp
+    
+    return answer
