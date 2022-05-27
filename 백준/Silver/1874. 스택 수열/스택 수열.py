@@ -1,19 +1,18 @@
-import sys
 n = int(input())
-a = 0
-b = []
+cnt = 0
+stack = []
 answer = []
 err = False
 for _ in range(n):
     m = int(input())
     
-    while a < m :
-        a += 1
-        b.append(a)
+    while cnt < m :
+        cnt += 1
+        stack.append(cnt)
         answer.append('+')
 
-    if b[-1] == m:
-        b.pop()
+    if stack[-1] == m:
+        stack.pop()
         answer.append('-')
         
     else:
