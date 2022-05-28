@@ -1,0 +1,14 @@
+def solution(numbers, target):
+    answer = 0
+    def dfs(deep,add_num):
+        nonlocal answer
+        if deep == len(numbers):# 마지막 숫자일때
+            if add_num == target: # 지금까지 더한 값이 target과 같다면
+                answer += 1
+        else:# 마지막 숫자 아닐때
+            dfs(deep+1,add_num+numbers[deep])
+            dfs(deep+1,add_num-numbers[deep])
+    dfs(0,0)
+    return answer
+# UnboundLocalError: local variable 'answer' referenced before assignment
+# 해결 -> answer을 nonlocal 사용 
