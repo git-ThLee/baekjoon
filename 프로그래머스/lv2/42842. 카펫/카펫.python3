@@ -1,0 +1,18 @@
+def solution(brown, yellow):
+    answer = []
+    b = []
+    # 약수 생성
+    for i in range(1,yellow+1):
+        if yellow % i == 0:
+            b.append(i)
+    b.sort(reverse = True)
+    print(b)
+    for width in b:
+        # width : 가로  yellow / width : 세로
+        if (width + 2)*2 + (yellow/width)*2 == brown :
+            print('가로 :',width)
+            print('세로 :',(yellow/width))
+            answer.append(width+2)
+            answer.append(yellow/width+2)
+            break
+    return answer
