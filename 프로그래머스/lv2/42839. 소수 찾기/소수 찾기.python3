@@ -1,5 +1,4 @@
-from itertools import permutations       
-        
+from itertools import permutations
 def solution(numbers):
     answer = []
     a = []
@@ -11,22 +10,24 @@ def solution(numbers):
         
     # 조합 생성(중복 허용)
     for i in range(1,len(a)+1):
-        b.append(list(permutations(a, i)))
-    
+        b.append(list(permutations(a, i)))    
+        
     # 조합 문자열 -> 숫자 변경
     for i in range(len(b)):       
         for j in range(len(b[i])):
             c.append(int(''.join(b[i][j])))
+            
     # 중복 제거        
     c = set(c)
     c = list(c)
-
+    
+    # 소수 찾기
     for i in c:
         count = 0
         for j in range(1, i+1):
             if i % j == 0:
                 count += 1
-            if count > 2:
+            if count > 2: # <-- 없으면 2개 시간초과 뜸!
                 break
         if count == 2:
             answer.append(i)
