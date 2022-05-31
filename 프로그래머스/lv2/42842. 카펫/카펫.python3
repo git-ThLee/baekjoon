@@ -1,6 +1,8 @@
 def solution(brown, yellow):
+    ## 1. yellow의 약수 생성 및 역정렬
+    ## 2. 2(가로+2) + 2(세로) == brown 이 맞으면 카펫 찾음
     answer = []
-    b = []
+    b = [] # 약수 리스트
     # 약수 생성
     for i in range(1,yellow+1):
         if yellow % i == 0:
