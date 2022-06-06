@@ -1,0 +1,19 @@
+def solution(number, k):
+    answer = ''
+    st = []
+    for i, char in enumerate(number):
+        while st and st[-1] < char and k > 0 :
+            st.pop()
+            k -= 1
+        st.append(char)
+    if k != 0:
+        st = st[:-k]
+    return ''.join(st)
+
+# from itertools import combinations
+
+# def solution(number, k):
+#     num_list = [(number[i]) for i in range(len(number))]
+#     combin_num_list = list(combinations(num_list, len(number)-k))
+#     answer = ''.join(max(combin_num_list))
+#     return answer
