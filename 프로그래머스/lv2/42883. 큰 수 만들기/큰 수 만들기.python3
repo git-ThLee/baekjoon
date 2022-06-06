@@ -2,10 +2,12 @@ def solution(number, k):
     answer = ''
     st = []
     for i, char in enumerate(number):
+        # st에 쌓을 숫자가 기존 숫자보다 크면 k번 만큼 제거
         while st and st[-1] < char and k > 0 :
             st.pop()
             k -= 1
         st.append(char)
+    # 12번 대응용 : k 가 전부 소진 안될 때
     if k != 0:
         st = st[:-k]
     return ''.join(st)
