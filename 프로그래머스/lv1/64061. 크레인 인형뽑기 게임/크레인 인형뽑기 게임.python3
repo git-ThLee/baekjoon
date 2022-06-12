@@ -2,7 +2,7 @@ def solution(board, moves):
     answer = 0
     answer_list = [0]
     board_list = [[0 for col in range(30)] for row in range(30)]
-
+    print(board_list)
     for n in reversed(range(len(board))):
         for m in range(len(board[n])):
             if board[n][m] != 0:
