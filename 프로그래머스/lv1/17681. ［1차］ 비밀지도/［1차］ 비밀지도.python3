@@ -3,6 +3,7 @@ def solution(n, arr1, arr2):
     tile1 = ['0']*len(arr1)
     tile2 = ['0']*len(arr2)
     
+    # arr1 타일 생성
     for i in range(len(arr1)):
         temp = ''
         for j in range(n):
@@ -12,7 +13,8 @@ def solution(n, arr1, arr2):
             else:
                 temp += '0'
         tile1[i] = temp[::-1]    
-    
+        
+    # arr2 타일 생성
     for i in range(len(arr2)):
         temp = ''
         for j in range(n):
@@ -22,7 +24,8 @@ def solution(n, arr1, arr2):
             else:
                 temp += '0'
         tile2[i] = temp[::-1] 
-    
+        
+    # arr1 + arr2 합치기
     for i in range(n):
         temp = ''
         for j in range(n):
