@@ -24,43 +24,44 @@ def solution(dartResult):
                 
     #print('split result :',split_list)    
     
+    # 점수로 환산
     for i in range(len(split_list)):
         item = split_list[i]
         if item.find('S') != -1 :
-            num = int(item[:item.find('S')]) ** 1
+            num = int(item[:item.find('S')]) ** 1   # 조건3
             answer.append(num)
-            if item.find('S') != len(item) -1 : # * or #                 
-                if item[item.find('S')+1] == '*':
-                    if len(answer) == 1 : # 첫ㅂ번째
+            if item.find('S') != len(item) -1 :     # 옵션이 존재한다면
+                if item[item.find('S')+1] == '*':   
+                    if len(answer) == 1 :           # 조건5 : 첫번째라면...
                         answer[i] *= 2
-                    else:
+                    else:                           # 조건4 : 이전 값*2 , 현재 값*2
                         answer[i-1] *= 2
                         answer[i] *= 2
-                else : # '#'
+                else :                              # 조건4 : 현재 값*-1
                     answer[i] *= -1 
         elif item.find('D') != -1 :
             num = int(item[:item.find('D')]) ** 2
             answer.append(num)
-            if item.find('D') != len(item) -1 : # * or #                 
+            if item.find('D') != len(item) -1 :               
                 if item[item.find('D')+1] == '*':
-                    if len(answer) == 1 : # 첫ㅂ번째
+                    if len(answer) == 1 : 
                         answer[i] *= 2
                     else:
                         answer[i-1] *= 2
                         answer[i] *= 2
-                else : # '#'
+                else :
                     answer[i] *= -1
         else:
             num = int(item[:item.find('T')]) ** 3
             answer.append(num)
-            if item.find('T') != len(item) -1 : # * or #                 
+            if item.find('T') != len(item) -1 : 
                 if item[item.find('T')+1] == '*':
-                    if len(answer) == 1 : # 첫ㅂ번째
+                    if len(answer) == 1 : 
                         answer[i] *= 2
                     else:
                         answer[i-1] *= 2
                         answer[i] *= 2
-                else : # '#'
+                else : 
                     answer[i] *= -1
     #print('str to int :',answer)
     return sum(answer)
