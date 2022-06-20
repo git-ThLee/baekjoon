@@ -1,0 +1,66 @@
+def solution(dartResult):
+    answer = []
+    dartResult += '@' # 마지막 자리 파악용 및 인덱스 문제 해결용
+    d = list(dartResult)
+    split_list = []
+    
+    # 점수|보너스|[옵션] 단위로 분류
+    while len(d) > 1 :
+        if d[0] in ['0','1','2','3','4','5','6','7','8','9'] :
+            if d[0] == '1' and d[1] == '0':
+                one_set = d[0] + d[1] + d[2]
+                if d[3] and d[3] in ['*','#']:
+                    one_set += d[3]                 
+                split_list.append(one_set)
+                for _ in range(len(one_set)):
+                    d.pop(0)
+            else:
+                one_set = d[0] + d[1] 
+                if d[2] and d[2] in ['*','#']:
+                    one_set += d[2]             
+                split_list.append(one_set)
+                for _ in range(len(one_set)):
+                    d.pop(0)
+                
+    #print('split result :',split_list)    
+    
+    for i in range(len(split_list)):
+        item = split_list[i]
+        if item.find('S') != -1 :
+            num = int(item[:item.find('S')]) ** 1
+            answer.append(num)
+            if item.find('S') != len(item) -1 : # * or #                 
+                if item[item.find('S')+1] == '*':
+                    if len(answer) == 1 : # 첫ㅂ번째
+                        answer[i] *= 2
+                    else:
+                        answer[i-1] *= 2
+                        answer[i] *= 2
+                else : # '#'
+                    answer[i] *= -1 
+        elif item.find('D') != -1 :
+            num = int(item[:item.find('D')]) ** 2
+            answer.append(num)
+            if item.find('D') != len(item) -1 : # * or #                 
+                if item[item.find('D')+1] == '*':
+                    if len(answer) == 1 : # 첫ㅂ번째
+                        answer[i] *= 2
+                    else:
+                        answer[i-1] *= 2
+                        answer[i] *= 2
+                else : # '#'
+                    answer[i] *= -1
+        else:
+            num = int(item[:item.find('T')]) ** 3
+            answer.append(num)
+            if item.find('T') != len(item) -1 : # * or #                 
+                if item[item.find('T')+1] == '*':
+                    if len(answer) == 1 : # 첫ㅂ번째
+                        answer[i] *= 2
+                    else:
+                        answer[i-1] *= 2
+                        answer[i] *= 2
+                else : # '#'
+                    answer[i] *= -1
+    #print('str to int :',answer)
+    return sum(answer)
