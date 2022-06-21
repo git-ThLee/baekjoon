@@ -1,0 +1,9 @@
+def solution(strings, n):
+    a = []
+    answer = []
+    for i in range(len(strings)):
+        a.append([strings[i][n],strings[i]])
+    a.sort(key= lambda x : (x[0], x[1]))
+    for i in range(len(a)):
+        answer.append(a[i][1])
+    return answer
