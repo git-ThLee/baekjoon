@@ -1,6 +1,9 @@
 def solution(N, stages):
+    ## 채점시 70점 나왓을 때 
+    # 원인 : 실패율 환산시에 N:5, [3,3,3,3] 경우라면 , 3단계에서 전부 실패 + 4단계,5단계 정보가 없음(NaN)!
+    # 해결 : len(stages) == 0 일 때, 0으로 값 대체
     answer = []
-    fail_list = []              # 실패율 리스트
+    fail_list = []  # 실패율 리스트
     stages.sort()
     
     # 1. 실패율 환산
@@ -12,6 +15,7 @@ def solution(N, stages):
         stages = stages[stages.count(i):]
     
     print(fail_list)
+    
     # 2. 순위 내림차순 정리
     for i in range(len(fail_list)):
         answer.append(fail_list.index(max(fail_list))+1)
