@@ -1,0 +1,12 @@
+def solution(s, n):
+    answer = ''
+    A = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'*2
+    a = 'abcdefghijklmnopqrstuvwxyz' *2
+    for i in range(len(s)):
+        if s[i] in list(A):
+            answer += list(A)[A.find(s[i])+n]
+        elif s[i] in list(a):
+            answer += list(a)[a.find(s[i])+n]
+        else:
+            answer += ' '
+    return answer
