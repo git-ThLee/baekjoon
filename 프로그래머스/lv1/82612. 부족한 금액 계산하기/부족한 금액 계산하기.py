@@ -1,3 +1,8 @@
 def solution(price, money, count):
-    answer =  sum([price*i for i in range(1,count+1)]) - money if sum([price*i for i in range(1,count+1)]) - money > 0 else 0
-    return answer
+    answer = 0
+    for i in range(1,count+1):
+        answer += price*i
+    if money - answer < 0 :
+        return abs(answer - money)
+    else:
+        return 0
