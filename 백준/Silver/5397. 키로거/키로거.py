@@ -1,19 +1,23 @@
-case = int(input())
-
-for _ in range(case):
-  input_str = input().strip()
-  pw_left = []
-  pw_right = []
-  for i in input_str:
-    if i == "<" : 
-      if pw_left:
-        pw_right.append(pw_left.pop())
-    elif i == ">" : 
-      if pw_right:
-        pw_left.append(pw_right.pop())
-    elif i == "-" :
-      if pw_left:
-        pw_left.pop()
+t = int(input())
+for _ in range(t):
+  l = input().strip()
+  l_st , r_st = list() , list()
+  '''
+  [A,B] cur [C,D]
+  [1,2,3,4]
+  [1,2,3] cur [4]
+  [1,2] cur [4,3]
+  '''
+  for i in l :
+    if i == '<' :
+      if len(l_st) > 0 :
+        r_st.append(l_st.pop())
+    elif i == '>' : 
+      if len(r_st) > 0:
+        l_st.append(r_st.pop())
+    elif i == '-' :
+      if len(l_st) > 0 :
+        l_st.pop()
     else:
-      pw_left.append(i)
-  print(''.join(pw_left) + ''.join(reversed(pw_right)))
+        l_st.append(i)
+  print(''.join(l_st) + ''.join(reversed(r_st)))
