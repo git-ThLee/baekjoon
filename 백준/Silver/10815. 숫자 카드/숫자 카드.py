@@ -1,25 +1,12 @@
 import sys
-
-n = int(sys.stdin.readline())
-card = list(map(int,sys.stdin.readline().split()))
-m = int(sys.stdin.readline())
-check = list(map(int,sys.stdin.readline().split()))
-card.sort()
-
-def binary_search(array, target, start, end):
-    while start <= end:
-        mid = (start + end) // 2
-
-        if array[mid] == target:
-            return mid
-        elif array[mid] > target:
-            end = mid - 1
-        else:
-            start = mid + 1
-    return None
-
-for i in range(m):
-    if binary_search(card, check[i], 0, n - 1) is not None:
-        print(1, end=' ')
-    else:
-        print(0, end=' ')
+s=[]
+a=int(sys.stdin.readline())
+b=set(map(int,sys.stdin.readline().split()))
+c=int(sys.stdin.readline())
+d=list(map(int,sys.stdin.readline().split()))
+for i in range(0,len(d)):
+  if d[i] in b:
+    s.append(1)
+  else:
+    s.append(0)
+print(*s)
