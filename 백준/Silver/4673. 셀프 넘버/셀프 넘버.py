@@ -1,10 +1,16 @@
-numbers = set(range(1, 10000))
-remove_set = set()  # 생성자가 있는 숫자 set
-for num in numbers :
-    for n in str(num):
-        num += int(n)
-    remove_set.add(num)  # add: 집합에 요소를 추가할 때
+num_list = [i for i in range(1,10000)]
+remove_list = []
 
-self_numbers = numbers - remove_set  # set의 '-' 연산자로 차집합을 구함
-for self_num in sorted(self_numbers):  # sorted 함수로 정렬
-    print(self_num)
+for number in num_list:
+    a = number
+    for num in str(number):
+        a = a + int(num)
+    if a < 10000:
+        remove_list.append(a)
+
+for x in remove_list:
+    if x in num_list:
+        num_list.remove(x)
+
+for num in num_list:
+    print(num)
